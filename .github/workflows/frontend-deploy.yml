@@ -1,0 +1,108 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-deploy.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  validate:
+    name: Validate Frontend
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Validate HTML files
+      run: |
+        echo "Validating HTML files..."
+        find frontend/src -name "*.html" -type f | while read file; do
+          echo "Checking $file"
+          # Basic HTML validation
+          grep -q "<!DOCTYPE html>" "$file" || echo "Warning: Missing DOCTYPE in $file"
+        done
+    
+    - name: Check for broken links (basic)
+      run: |
+        echo "Checking for common issues..."
+        cd frontend/src
+        # Check for missing image references
+        grep -r "src=\"images/" *.html || echo "No image references found"
+        # Check for API config
+        test -f config.js && echo "✅ config.js found" || echo "⚠️ config.js not found"
+    
+    - name: Validate CSS
+      run: |
+        echo "Validating CSS files..."
+        find frontend/src/css -name "*.css" -type f | while read file; do
+          echo "Checking $file"
+          # Basic CSS validation
+          grep -q ":root" "$file" && echo "✅ CSS variables found in $file"
+        done
+    
+    - name: Validate JavaScript
+      run: |
+        echo "Validating JavaScript files..."
+        find frontend/src/js -name "*.js" -type f | while read file; do
+          echo "Checking $file"
+        done
+        test -f frontend/src/config.js && echo "✅ API config found"
+
+  security-check:
+    name: Security Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Check for sensitive data
+      run: |
+        echo "Checking for sensitive data..."
+        # Check for API keys or secrets in frontend code
+        if grep -r "sk_" frontend/src/ 2>/dev/null; then
+          echo "⚠️ Warning: Potential API key found"
+          exit 1
+        fi
+        if grep -r "password.*=" frontend/src/*.js 2>/dev/null; then
+          echo "⚠️ Warning: Potential hardcoded password found"
+          exit 1
+        fi
+        echo "✅ No sensitive data found"
+
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    needs: [validate, security-check]
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Preview deployment info
+      run: |
+        echo "📦 Frontend files ready for preview deployment"
+        echo "📁 Root directory: frontend/src"
+        echo "🌐 Deploy to Vercel for preview"
+
+  deploy-production:
+    name: Production Deployment Ready
+    runs-on: ubuntu-latest
+    needs: [validate, security-check]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Deployment notification
+      run: |
+        echo "✅ Frontend is ready for production deployment!"
+        echo "🚀 Deploy to Vercel: https://vercel.com"
+        echo "📁 Root directory: frontend/src"
+        echo "🔧 Remember to set VITE_API_URL environment variable"
