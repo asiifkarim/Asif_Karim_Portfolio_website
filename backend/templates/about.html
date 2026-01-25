@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block title %}About - Asif Karim{% endblock %}
+{% block meta_description %}Learn more about Asif Karim - AI Developer and Data Scientist with expertise in Python, Machine Learning, Deep Learning, and AI solutions{% endblock %}
+
+{% block content %}
+<!-- About Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h1 class="page-title">About Me</h1>
+        <p class="page-subtitle">Passionate AI Developer & Data Scientist</p>
+    </div>
+</section>
+
+<!-- Bio Section -->
+<section class="bio-section">
+    <div class="container">
+        <div class="bio-content">
+            <div class="bio-text">
+                <h2>Hello, I'm Asif Karim</h2>
+                <p>
+                    I'm a passionate AI Developer and Data Scientist with over 3 years of experience 
+                    in building intelligent solutions. My journey began with a fascination for how 
+                    machines can learn and make decisions, which led me to specialize in Machine 
+                    Learning, Deep Learning, and AI development.
+                </p>
+                <p>
+                    I hold a degree in Computer Science and have worked on numerous projects 
+                    ranging from predictive analytics to computer vision applications. My expertise 
+                    spans across Python, TensorFlow, PyTorch, FastAPI, and various cloud platforms.
+                </p>
+                <p>
+                    When I'm not coding, you'll find me exploring the latest AI research papers, 
+                    contributing to open-source projects, or sharing my knowledge through technical 
+                    blogs and mentoring.
+                </p>
+            </div>
+            <div class="bio-image">
+                <img id="profile-image" src="/static/images/profile_20251029_145835.png" alt="Asif Karim - AI Developer & Data Scientist" class="profile-image" onerror="handleImageError(this);">
+                <div class="profile-placeholder" id="profile-placeholder" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills-section">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-categories">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                    
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Keras</span>
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">NLTK</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-bar"></i> Data Science</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Seaborn</span>
+                    <span class="skill-tag">Plotly</span>
+                    <span class="skill-tag">Jupyter</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Generative AI</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Langchain</span>
+                    <span class="skill-tag">RAG</span>
+                    
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> Web Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Streamlit</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-cloud"></i> Cloud & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Google Cloud</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section">
+    <div class="container">
+        <h2 class="section-title">Education & Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Senior AI Developer</h3>
+                    <h4>Tech Solutions Inc.</h4>
+                    <span class="timeline-date">2022 - Present</span>
+                    <p>
+                        Leading AI projects and developing machine learning models for various clients. 
+                        Specialized in computer vision and natural language processing applications.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Data Scientist</h3>
+                    <h4>DataCorp Analytics</h4>
+                    <span class="timeline-date">2021 - 2022</span>
+                    <p>
+                        Built predictive models and data pipelines for business intelligence. 
+                        Worked with large datasets and implemented automated reporting systems.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Machine Learning Engineer</h3>
+                    <h4>AI Startup</h4>
+                    <span class="timeline-date">2020 - 2021</span>
+                    <p>
+                        Developed ML models for recommendation systems and customer analytics. 
+                        Collaborated with cross-functional teams to deploy models in production.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Computer Science</h3>
+                    <h4>University of Technology</h4>
+                    <span class="timeline-date">2016 - 2020</span>
+                    <p>
+                        Graduated with honors, focusing on artificial intelligence and machine learning. 
+                        Completed thesis on deep learning applications in computer vision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Handle image error
+function handleImageError(img) {
+    img.style.display = 'none';
+    const placeholder = document.getElementById('profile-placeholder');
+    if (placeholder) {
+        placeholder.style.display = 'flex';
+    }
+}
+
+// Load profile image from API
+async function loadProfileImage() {
+    try {
+        const response = await fetch('/api/profile-image');
+        const data = await response.json();
+        
+        if (data.url) {
+            const img = document.getElementById('profile-image');
+            const placeholder = document.getElementById('profile-placeholder');
+            
+            if (img) {
+                img.onload = function() {
+                    // Image loaded successfully
+                    if (placeholder) {
+                        placeholder.style.display = 'none';
+                    }
+                    img.style.display = 'block';
+                };
+                
+                img.onerror = function() {
+                    // Image failed to load
+                    handleImageError(img);
+                };
+                
+                img.src = data.url;
+                img.alt = data.alt || 'Profile Image';
+            }
+        } else {
+            // No profile image found, show placeholder
+            handleImageError(document.getElementById('profile-image'));
+        }
+    } catch (error) {
+        console.error('Error loading profile image:', error);
+        handleImageError(document.getElementById('profile-image'));
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadProfileImage);
+</script>
+{% endblock %}

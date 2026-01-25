@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Asif Karim's AI and Data Science projects including Machine Learning models, web applications, and innovative solutions">
+    <meta name="keywords" content="AI Projects, Machine Learning, Data Science, Python, GitHub">
+    <meta name="author" content="Asif Karim">
+    
+    <title>Projects - Asif Karim</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Asif Karim</a>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="blogs.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Projects Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">My Projects</h1>
+                <p class="page-subtitle">AI & Data Science Solutions</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="container">
+                <div class="projects-header">
+                    <p class="projects-description">
+                        Here are some of my recent projects showcasing my expertise in AI, Machine Learning, 
+                        and Data Science. All projects are available on GitHub and demonstrate real-world 
+                        applications of cutting-edge technologies.
+                    </p>
+                </div>
+                
+                <!-- Loading State -->
+                <div class="loading-state" id="projects-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading projects from GitHub...</p>
+                </div>
+                
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid" style="display: none;">
+                    <!-- Projects will be dynamically loaded here -->
+                </div>
+                
+                <!-- Error State -->
+                <div class="error-state" id="projects-error" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Unable to load projects</h3>
+                    <p>There was an error loading projects from GitHub. Please try again later.</p>
+                    <button class="btn btn-primary" onclick="loadProjects()">Retry</button>
+                </div>
+                
+                <!-- Empty State -->
+                <div class="empty-state" id="projects-empty" style="display: none;">
+                    <i class="fas fa-code"></i>
+                    <h3>No projects found</h3>
+                    <p>No public repositories found for this GitHub user.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Project Section -->
+        <section class="featured-project">
+            <div class="container">
+                <h2 class="section-title">Featured Project</h2>
+                <div class="featured-content">
+                    <div class="featured-text">
+                        <h3>AI-Powered Image Classification System</h3>
+                        <p>
+                            A comprehensive computer vision solution built with TensorFlow and FastAPI. 
+                            This project demonstrates advanced deep learning techniques for image classification 
+                            with a user-friendly web interface.
+                        </p>
+                        <div class="featured-tech">
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <div class="featured-links">
+                            <a href="#" class="btn btn-primary">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                            <a href="#" class="btn btn-secondary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="featured-image">
+                        <div class="project-preview">
+                            <i class="fas fa-image"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Asif Karim</h3>
+                    <p>AI Developer & Data Scientist</p>
+                    <p>Building intelligent solutions for the future</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/asiifkarim" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/asifkarim1" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:asiif.krm@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+923554539123" aria-label="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Asif Karim | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- API Configuration -->
+    <script src="config.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+    // Load projects from GitHub API
+    async function loadProjects() {
+        const loadingEl = document.getElementById('projects-loading');
+        const gridEl = document.getElementById('projects-grid');
+        const errorEl = document.getElementById('projects-error');
+        const emptyEl = document.getElementById('projects-empty');
+        
+        // Show loading state
+        loadingEl.style.display = 'block';
+        gridEl.style.display = 'none';
+        errorEl.style.display = 'none';
+        emptyEl.style.display = 'none';
+        
+        try {
+            const response = await fetch(getApiUrl(CONFIG.ENDPOINTS.PROJECTS));
+            const data = await response.json();
+            
+            if (response.ok && data.projects && data.projects.length > 0) {
+                renderProjects(data.projects);
+                gridEl.style.display = 'grid';
+            } else {
+                emptyEl.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Error loading projects:', error);
+            errorEl.style.display = 'block';
+        } finally {
+            loadingEl.style.display = 'none';
+        }
+    }
+
+    // HTML escaping function
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Render projects in the grid
+    function renderProjects(projects) {
+        const gridEl = document.getElementById('projects-grid');
+        
+        gridEl.innerHTML = projects.map(project => `
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">${escapeHtml(project.name)}</h3>
+                    <div class="project-stats">
+                        <span class="stat">
+                            <i class="fas fa-star"></i>
+                            ${project.stars}
+                        </span>
+                        <span class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            ${project.forks}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <p class="project-description">${escapeHtml(project.description || 'No description available')}</p>
+                    
+                    ${project.language ? `
+                        <div class="project-language">
+                            <span class="language-dot"></span>
+                            ${escapeHtml(project.language)}
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="project-footer">
+                    <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Initialize projects when page loads
+    document.addEventListener('DOMContentLoaded', loadProjects);
+    </script>
+</body>
+</html>
