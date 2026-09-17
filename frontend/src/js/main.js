@@ -181,14 +181,23 @@ async function loadProjects() {
 
 window.loadProjects = loadProjects;
 
+function setCopyrightYear() {
+    document.querySelectorAll('.copyright-year').forEach(element => {
+        element.textContent = new Date().getFullYear();
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     new ThemeManager();
     new NavigationManager();
     new AnimationManager();
     new NewsletterManager();
+    setCopyrightYear();
     loadProjects();
     document.body.classList.add('loaded');
 });
+
+setCopyrightYear();
 
 window.addEventListener('resize', () => {
     document.body.classList.toggle('mobile', window.innerWidth <= 768);
