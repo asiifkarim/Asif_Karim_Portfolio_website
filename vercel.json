@@ -1,28 +1,8 @@
 {
-  "version": 2,
-  "name": "portfolio-frontend",
-  "builds": [
-    {
-      "src": "frontend/src/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/src/$1"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/frontend/src/index.html"
-    },
-    {
-      "source": "/(.*).html",
-      "destination": "/frontend/src/$1.html"
-    }
-  ],
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "echo 'Static frontend: no build required'",
+  "outputDirectory": "frontend/src",
   "headers": [
     {
       "source": "/(.*)",
@@ -36,12 +16,11 @@
           "value": "DENY"
         },
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     }
   ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  "cleanUrls": true
 }

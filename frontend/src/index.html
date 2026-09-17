@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Asif Karim's portfolio - AI Developer and Data Scientist specializing in Machine Learning, Deep Learning, and AI solutions">
-    <meta name="keywords" content="AI Developer, Data Scientist, Machine Learning, Deep Learning, Python, FastAPI">
+    <meta name="description" content="Asif Karim - Generative AI and Agentic AI Engineer specializing in multi-agent systems, RAG pipelines, and production LLM applications.">
+    <meta name="keywords" content="Generative AI Engineer, Agentic AI Engineer, LangGraph, LangChain, RAG, Multi-Agent Systems, LLM Applications">
     <meta name="author" content="Asif Karim">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Asif Karim - AI Developer & Data Scientist">
-    <meta property="og:description" content="Professional AI Developer and Data Scientist with expertise in Machine Learning, Deep Learning, and AI solutions">
+    <meta property="og:title" content="Asif Karim - Generative AI & Agentic AI Engineer">
+    <meta property="og:description" content="Generative AI and Agentic AI Engineer building multi-agent systems, RAG pipelines, and production LLM applications.">
     <meta property="og:type" content="website">
     
-    <title>Home - Asif Karim</title>
+    <title>Asif Karim - Generative AI & Agentic AI Engineer</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -39,7 +39,6 @@
                 <a href="about.html" class="nav-link">About</a>
                 <a href="projects.html" class="nav-link">Projects</a>
                 <a href="services.html" class="nav-link">Services</a>
-                <a href="blogs.html" class="nav-link">Blog</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
             
@@ -64,13 +63,13 @@
                 <div class="hero-content">
                     <h1 class="hero-title">
                         <span class="hero-name">Asif Karim</span>
-                        <span class="hero-subtitle">AI Developer | Data Scientist</span>
+                        <span class="hero-subtitle">Generative AI & Agentic AI Engineer</span>
                     </h1>
                     
                     <p class="hero-description">
-                        Passionate about building intelligent solutions that solve real-world problems. 
-                        I specialize in Machine Learning, Deep Learning, and AI development using Python, 
-                        FastAPI, and modern web technologies.
+                        I build production-ready LLM applications that solve real-world problems.
+                        My work focuses on multi-agent systems with LangGraph, reliable RAG pipelines,
+                        and production AI products powered by modern LLM APIs.
                     </p>
                     
                     <div class="hero-buttons">
@@ -115,23 +114,23 @@
                 <div class="skills-grid">
                     <div class="skill-card">
                         <i class="fas fa-brain"></i>
-                        <h3>Machine Learning</h3>
-                        <p>Building predictive models and intelligent systems</p>
+                        <h3>Agentic AI Systems</h3>
+                        <p>Designing multi-agent workflows that reason, collaborate, and act</p>
                     </div>
                     <div class="skill-card">
                         <i class="fas fa-chart-line"></i>
-                        <h3>Data Science</h3>
-                        <p>Extracting insights from complex datasets</p>
+                        <h3>RAG Pipelines</h3>
+                        <p>Grounding LLM applications in useful, trustworthy knowledge</p>
                     </div>
                     <div class="skill-card">
                         <i class="fas fa-robot"></i>
-                        <h3>AI Development</h3>
-                        <p>Creating intelligent applications and solutions</p>
+                        <h3>Production LLM Apps</h3>
+                        <p>Turning LLM capabilities into reliable, usable products</p>
                     </div>
                     <div class="skill-card">
                         <i class="fas fa-code"></i>
-                        <h3>Web Development</h3>
-                        <p>Building scalable APIs and web applications</p>
+                        <h3>AI Infrastructure</h3>
+                        <p>Shipping Python services and integrations around AI systems</p>
                     </div>
                 </div>
             </div>
@@ -167,8 +166,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Asif Karim</h3>
-                    <p>AI Developer & Data Scientist</p>
-                    <p>Building intelligent solutions for the future</p>
+                    <p>Generative AI & Agentic AI Engineer</p>
+                    <p>Building production LLM applications and multi-agent systems</p>
                 </div>
                 
                 <div class="footer-section">
@@ -178,7 +177,6 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -208,46 +206,8 @@
         </div>
     </footer>
 
-    <!-- API Configuration -->
-    <script src="config.js"></script>
-    
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
     
-    <script>
-    // Animate stats numbers on scroll
-    function animateStats() {
-        const stats = document.querySelectorAll('.stat-number');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.dataset.target);
-                    animateNumber(entry.target, target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        
-        stats.forEach(stat => observer.observe(stat));
-    }
-
-    function animateNumber(element, target) {
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            element.textContent = Math.floor(current);
-        }, 30);
-    }
-
-    // Initialize animations when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        animateStats();
-    });
-    </script>
 </body>
 </html>

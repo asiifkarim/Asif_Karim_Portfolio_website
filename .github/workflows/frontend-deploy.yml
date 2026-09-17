@@ -35,8 +35,8 @@ jobs:
         cd frontend/src
         # Check for missing image references
         grep -r "src=\"images/" *.html || echo "No image references found"
-        # Check for API config
-        test -f config.js && echo "✅ config.js found" || echo "⚠️ config.js not found"
+        # Confirm the static JavaScript directory exists.
+        test -d js && echo "✅ static JavaScript found"
     
     - name: Validate CSS
       run: |
@@ -53,7 +53,7 @@ jobs:
         find frontend/src/js -name "*.js" -type f | while read file; do
           echo "Checking $file"
         done
-        test -f frontend/src/config.js && echo "✅ API config found"
+        test -f frontend/src/js/main.js && echo "✅ main.js found"
 
   security-check:
     name: Security Check
@@ -105,4 +105,4 @@ jobs:
         echo "✅ Frontend is ready for production deployment!"
         echo "🚀 Deploy to Vercel: https://vercel.com"
         echo "📁 Root directory: frontend/src"
-        echo "🔧 Remember to set VITE_API_URL environment variable"
+        echo "🔧 No environment variables or build step required"

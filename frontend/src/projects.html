@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Asif Karim's AI and Data Science projects including Machine Learning models, web applications, and innovative solutions">
-    <meta name="keywords" content="AI Projects, Machine Learning, Data Science, Python, GitHub">
+    <meta name="description" content="Explore Asif Karim's Generative AI and Agentic AI projects, including multi-agent systems, RAG pipelines, and production LLM applications.">
+    <meta name="keywords" content="Generative AI Projects, Agentic AI Projects, LangGraph, RAG, LLM Applications, GitHub">
     <meta name="author" content="Asif Karim">
     
-    <title>Projects - Asif Karim</title>
+    <title>Projects - Asif Karim | Generative AI & Agentic AI Engineer</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -34,7 +34,6 @@
                 <a href="about.html" class="nav-link">About</a>
                 <a href="projects.html" class="nav-link active">Projects</a>
                 <a href="services.html" class="nav-link">Services</a>
-                <a href="blogs.html" class="nav-link">Blog</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
             
@@ -57,7 +56,7 @@
         <section class="page-hero">
             <div class="container">
                 <h1 class="page-title">My Projects</h1>
-                <p class="page-subtitle">AI & Data Science Solutions</p>
+                <p class="page-subtitle">Generative AI & Agentic AI Systems</p>
             </div>
         </section>
 
@@ -66,9 +65,9 @@
             <div class="container">
                 <div class="projects-header">
                     <p class="projects-description">
-                        Here are some of my recent projects showcasing my expertise in AI, Machine Learning, 
-                        and Data Science. All projects are available on GitHub and demonstrate real-world 
-                        applications of cutting-edge technologies.
+                        Here are projects showcasing my work in Generative AI, agentic workflows,
+                        retrieval-augmented generation, and production LLM applications. Curated work
+                        appears first, followed by the latest public repositories from GitHub.
                     </p>
                 </div>
                 
@@ -106,17 +105,16 @@
                 <h2 class="section-title">Featured Project</h2>
                 <div class="featured-content">
                     <div class="featured-text">
-                        <h3>AI-Powered Image Classification System</h3>
+                        <h3>Production Generative AI Systems</h3>
                         <p>
-                            A comprehensive computer vision solution built with TensorFlow and FastAPI. 
-                            This project demonstrates advanced deep learning techniques for image classification 
-                            with a user-friendly web interface.
+                            Building reliable AI products with multi-agent orchestration, retrieval-augmented
+                            generation, tool use, and production-ready Python services.
                         </p>
                         <div class="featured-tech">
-                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">LangGraph</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">RAG</span>
                             <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">React</span>
                         </div>
                         <div class="featured-links">
                             <a href="#" class="btn btn-primary">
@@ -145,8 +143,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Asif Karim</h3>
-                    <p>AI Developer & Data Scientist</p>
-                    <p>Building intelligent solutions for the future</p>
+                    <p>Generative AI & Agentic AI Engineer</p>
+                    <p>Building production LLM applications and multi-agent systems</p>
                 </div>
                 
                 <div class="footer-section">
@@ -156,7 +154,6 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -186,95 +183,8 @@
         </div>
     </footer>
 
-    <!-- API Configuration -->
-    <script src="config.js"></script>
-    
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
     
-    <script>
-    // Load projects from GitHub API
-    async function loadProjects() {
-        const loadingEl = document.getElementById('projects-loading');
-        const gridEl = document.getElementById('projects-grid');
-        const errorEl = document.getElementById('projects-error');
-        const emptyEl = document.getElementById('projects-empty');
-        
-        // Show loading state
-        loadingEl.style.display = 'block';
-        gridEl.style.display = 'none';
-        errorEl.style.display = 'none';
-        emptyEl.style.display = 'none';
-        
-        try {
-            const response = await fetch(getApiUrl(CONFIG.ENDPOINTS.PROJECTS));
-            const data = await response.json();
-            
-            if (response.ok && data.projects && data.projects.length > 0) {
-                renderProjects(data.projects);
-                gridEl.style.display = 'grid';
-            } else {
-                emptyEl.style.display = 'block';
-            }
-        } catch (error) {
-            console.error('Error loading projects:', error);
-            errorEl.style.display = 'block';
-        } finally {
-            loadingEl.style.display = 'none';
-        }
-    }
-
-    // HTML escaping function
-    function escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-
-    // Render projects in the grid
-    function renderProjects(projects) {
-        const gridEl = document.getElementById('projects-grid');
-        
-        gridEl.innerHTML = projects.map(project => `
-            <div class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">${escapeHtml(project.name)}</h3>
-                    <div class="project-stats">
-                        <span class="stat">
-                            <i class="fas fa-star"></i>
-                            ${project.stars}
-                        </span>
-                        <span class="stat">
-                            <i class="fas fa-code-branch"></i>
-                            ${project.forks}
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="project-content">
-                    <p class="project-description">${escapeHtml(project.description || 'No description available')}</p>
-                    
-                    ${project.language ? `
-                        <div class="project-language">
-                            <span class="language-dot"></span>
-                            ${escapeHtml(project.language)}
-                        </div>
-                    ` : ''}
-                </div>
-                
-                <div class="project-footer">
-                    <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // Initialize projects when page loads
-    document.addEventListener('DOMContentLoaded', loadProjects);
-    </script>
 </body>
 </html>
